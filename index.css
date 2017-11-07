@@ -1,0 +1,19 @@
+.line {
+  fill: none;
+  stroke: red;
+  stroke-width: 1.5px;
+}
+
+* {
+    text-align: center;
+    font-family: 'Helvetica';
+}
+
+.stellingen {
+  padding: 10px 0 0 10px;
+}
+
+.axis text {
+    font-size: 10px;
+    font-weight: bold;
+}
