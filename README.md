@@ -8,7 +8,7 @@ Voor het individuele project moeten de studenten twee opdrachten maken, opdracht
 
 Opdracht A is een opdracht die alles met code te maken heeft - een datavisualisatie moet in code met behulp van d3 geschreven worden. Deze is te vinden op de [GH-page](https://jensorsel.github.io/Information-Design-Opdrachten/) die bij deze repo hoort.
 
-Opdracht B is een meer conceptuele opdracht. De bedoeling van deze opdracht is dat de student een datavisualisatie met een 'beleving' maakt en daarbij niet gelimiteerd wordt door technische vaardigheden.
+Opdracht B is een meer conceptuele opdracht. De bedoeling van deze opdracht is dat de student een datavisualisatie met een 'beleving' maakt en daarbij niet gelimiteerd wordt door technische vaardigheden. Het prototype is [hier](https://marvelapp.com/56e790d/) te vinden (**maak het prototype fullscreen met F11!**)
 
 ## Opdracht A
 
@@ -40,6 +40,35 @@ Op deze voorbeelden zijn voornamelijk visuele veranderingen gemaakt. Bijvoorbeel
 Mijn voornaamste problemen zaten in het veranderen van de labels in de bar chart. Deze wilden maar niet bewegen. Ik had deze graag willen laten 'wrappen', maar dat is mij uiteindelijk niet gelukt. Ik heb ze daarom duidelijk mogelijk proberen te laten zien, door een redelijk groot lettertype te gebruiken en de tekst dikgedrukt te maken.
 
 ## Opdracht B
+
+### Link
+
+Opdracht B is [hier](https://marvelapp.com/56e790d/) te vinden.
+
+### Het idee
+
+Tijdens één van mijn coachingmomenten met Jan Jaap kwam dit naar voren. Ik stelde voor om één grafiek als hoofdnavigatie te gebruiken, waarbinnen vervolgens allemaal andere grafieken te vinden zouden zijn. Echter was dit geen echte beleving. Toen werd mij het idee gepresenteerd van een tijdlijn, die zowel op een kronkelende/ronde manier als rechte manier te zien is. Op de as komen 'mijlpalen' te staan, gebeurtenissen die de grafieken die bij de tijdlijn horen (kunnen) beïnvloeden. Dit is het idee waarmee ik ben gaan werken. Het eerste idee was een soort van oneindige 'S', die steeds verder bleef kronkelen, maar het leek mij interessant om met een cirkel verder te gaan. De cirkel doet zowel aan de aarde denken, waar het veel over gaat in de energiediscussie, maar ook aan een klok, wat het besef van tijd duidelijker maakt.
+
+De laatste keuze was om achtergronden te gebruiken die bij de gebeurtenissen horen - terwijl je door de tijd heen gaat, verandert de achtergrond mee, dit zorgt ervoor dat het echt voelt alsof je door de tijd aan het reizen bent.
+
+### Hoe het prototype werkt / zou moeten werken
+
+#### Werkt
+
+Door middel van de pijl beweeg je steeds naar de volgende mijlpaal.
+
+De bedoeling van de checkboxes is het aan- en uitzetten van elke lijn. **Dit kan op de eerste cirkelgrafiek, 1800**.
+Ik heb dit voor het eerste scherm gedaan om de gewenste werking te laten zien. Bij de rest van de schermen kunnen alleen alle lijnen aan of uit.
+
+De bedoeling van het prototype in het algemeen is om de gebeurtenissen vergelijken met stijgingen/dalingen in de verschillende grafieken. Daarnaast kan het verschil tussen de cirkelgrafiek en de lijngrafiek best indrukwekkend zijn, omdat je dan ineens een veel beter beeld krijgt van hoe groot de stijging in iedere grafiek is.
+
+#### Zou moeten werken
+
+Het grootste onderdeel van het prototype dat zou moeten werken, maar nog niet werkt, is dat elke lijn per scherm aan en uit gezet moet kunnen worden. Dit zou het aantal schermen dat ik heb echter bijna vertienvoudigen, dus ik besloot dat dit de tijd niet waard was.
+
+Een grote ergenis is de wijze waarop de lijnen (in de cirkelgrafiek) getekend zijn. Ik ben ervan bewust dat deze er enorm amateuristisch en infantiel uit zien. Ik heb geen manier kunnen vinden waarop de grafieken die ik heb gebruikt om een cirkel gevormd kunnen worden. Dat zou ik anders gedaan hebben.
+
+Iets wat ik gedaan zou hebben als ik de tijd nog had, was om het schakelen tussen de cirkel- en lijngrafieken écht te laten werken. Bijvoorbeeld, dat terwijl je op de cirkelgrafiek van 2014 staat en dan op de lijngrafiek drukt, dat je dan ook echt de lijngrafiek van 2014 ziet en niet weer helemaal naar het begin gaat.
 
 ## Bronnen
 
