@@ -14,11 +14,15 @@ Opdracht B is een meer conceptuele opdracht. De bedoeling van deze opdracht is d
 
 ### Ideeën
 
-De ideeën waarmee ik uiteindelijk aan de slag ging kwamen voort uit werkbladen die wij voor het vak 'Free Space' moesten maken. Hierbij moesten we visualisatievormen bedenken voor de [research case](https://www.gitbook.com/book/jensorsel/rfd/details) die in het vak 'Research for Data' gemaakt is. 
+De ideeën waarmee ik uiteindelijk aan de slag ging kwamen voort uit werkbladen die wij voor het vak 'Free Space' moesten maken. Hierbij moesten we visualisatievormen bedenken voor de [research case](https://www.gitbook.com/book/jensorsel/rfd/details) die in het vak 'Research for Data' gemaakt is. Zie de schetsen hieronder.
+
+![Free Space schetsen](https://i.imgur.com/hjVYqAE.jpg)
 
 Mijn eerste idee was om zonnestralen als linechart te gebruiken. Hierbij leken kosten en baten mij het interessantst om te tonen, ik ging ervanuit dat dit toch de uiteindelijke reden is dat mensen wel of niet op zonne-energie overgaan. Het idee van de zonnestralen heb ik teruggebracht tot een 'gewone' linechart, aangezien dat idee zich meer voor opdracht B leende. 
 
 Mijn tweede idee was om enquête-data in een zonnepaneel te laten zien. Dit stelt eigenlijk gewoon een pie chart voor, maar dan stelt één cel op een zonnepaneel één procent voor. Nogmaals, dit leek meer geschikt voor opdracht B. Daarom was dit idee eerst teruggebracht naar een pie chart. Omdat dit technisch gezien te moeilijk ging worden, is dit uiteindelijk een horizontale bar chart geworden.
+
+Het derde idee heb ik achterwege gelaten, aangezien dit idee simpelweg niet sterk genoeg was vergeleken met de rest.
 
 ### Data 
 
@@ -49,6 +53,8 @@ Opdracht B is [hier](https://marvelapp.com/56e790d/) te vinden. **Maak het proto
 
 Tijdens één van mijn coachingmomenten met Jan Jaap kwam dit naar voren. Ik stelde voor om één grafiek als hoofdnavigatie te gebruiken, waarbinnen vervolgens allemaal andere grafieken te vinden zouden zijn. Echter was dit geen echte beleving. Toen werd mij het idee gepresenteerd van een tijdlijn, die zowel op een kronkelende/ronde manier als rechte manier te zien is. Op de as komen 'mijlpalen' te staan, gebeurtenissen die de grafieken die bij de tijdlijn horen (kunnen) beïnvloeden. Dit is het idee waarmee ik ben gaan werken. Het eerste idee was een soort van oneindige 'S', die steeds verder bleef kronkelen, maar het leek mij interessant om met een cirkel verder te gaan. De cirkel doet zowel aan de aarde denken, waar het veel over gaat in de energiediscussie, maar ook aan een klok, wat het besef van tijd duidelijker maakt.
 
+![Jan Jaap's Idee](https://i.imgur.com/oZ8Lajf.png)
+
 De laatste keuze was om achtergronden te gebruiken die bij de gebeurtenissen horen - terwijl je door de tijd heen gaat, verandert de achtergrond mee, dit zorgt ervoor dat het echt voelt alsof je door de tijd aan het reizen bent.
 
 ### Hoe het prototype werkt / zou moeten werken
@@ -77,6 +83,10 @@ Wat ik zou willen als ik het zou kunnen maken, is een mooie transitie van de cir
 De data die ik heb gebruikt, en de data die ik heb getoond, verschillen een klein beetje. Soms was er maar data tot 2014, soms begon het net na 1800, dus dat heb ik voor mijn gemak doorgetrokken. Daarnaast zijn de lijnen in de cirkelgrafiek natuurlijk niet 100% kloppend, aangezien ik deze met de hand heb getekend.
 
 Ik heb gekozen voor uitstoot, energieconsumptie en temperatuur als data om te tonen. Ik denk dat dit de meest interessante getallen zijn voor de gemiddelde gebruiker, daarnaast geven ze ook gelijk een dramatische realiteit mee omdat ze allemaal zo rap aan het stijgen zijn.
+
+## Ontwerpproces/schetsen
+
+Zie [hier](https://imgur.com/a/Asr3l) de link naar mijn ontwerpproces/schetsen, met toelichting.
 
 ## Bronnen
 
