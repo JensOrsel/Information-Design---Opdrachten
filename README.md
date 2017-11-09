@@ -66,9 +66,17 @@ De bedoeling van het prototype in het algemeen is om de gebeurtenissen vergelijk
 
 Het grootste onderdeel van het prototype dat zou moeten werken, maar nog niet werkt, is dat elke lijn per scherm aan en uit gezet moet kunnen worden. Dit zou het aantal schermen dat ik heb echter bijna vertienvoudigen, dus ik besloot dat dit de tijd niet waard was.
 
-Een grote ergenis is de wijze waarop de lijnen (in de cirkelgrafiek) getekend zijn. Ik ben ervan bewust dat deze er enorm amateuristisch en infantiel uit zien. Ik heb geen manier kunnen vinden waarop de grafieken die ik heb gebruikt om een cirkel gevormd kunnen worden. Dat zou ik anders gedaan hebben.
+Een grote ergenis is de wijze waarop de lijnen (in de cirkelgrafiek) getekend zijn. Ik ben ervan bewust dat deze er enorm amateuristisch en infantiel uit zien. Ik heb geen manier kunnen vinden waarop de grafieken die ik heb gebruikt om een cirkel gevormd kunnen worden. Ik heb deze dus met de hand getekend. Dat zou ik anders gedaan hebben.
 
 Iets wat ik gedaan zou hebben als ik de tijd nog had, was om het schakelen tussen de cirkel- en lijngrafieken écht te laten werken. Bijvoorbeeld, dat terwijl je op de cirkelgrafiek van 2014 staat en dan op de lijngrafiek drukt, dat je dan ook echt de lijngrafiek van 2014 ziet en niet weer helemaal naar het begin gaat.
+
+Wat ik zou willen als ik het zou kunnen maken, is een mooie transitie van de cirkel- naar de lijngrafiek. Dat de lijn van de cirkel platgelegd wordt en vervolgens netjes werkt als lijngrafiek.
+
+### Gebruikte data
+
+De data die ik heb gebruikt, en de data die ik heb getoond, verschillen een klein beetje. Soms was er maar data tot 2014, soms begon het net na 1800, dus dat heb ik voor mijn gemak doorgetrokken. Daarnaast zijn de lijnen in de cirkelgrafiek natuurlijk niet 100% kloppend, aangezien ik deze met de hand heb getekend.
+
+Ik heb gekozen voor uitstoot, energieconsumptie en temperatuur als data om te tonen. Ik denk dat dit de meest interessante getallen zijn voor de gemiddelde gebruiker, daarnaast geven ze ook gelijk een dramatische realiteit mee omdat ze allemaal zo rap aan het stijgen zijn.
 
 ## Bronnen
 
@@ -82,6 +90,12 @@ Iets wat ik gedaan zou hebben als ik de tijd nog had, was om het schakelen tusse
 * [Multi-Series Line Chart](https://bl.ocks.org/mbostock/3884955)
 
 ### Opdracht B
+
+* [Geschiedenis van energie](http://www.ecology.com/2011/09/03/the-history-of-energy-use/)
+* [Wikipedia - Windenergie](https://nl.wikipedia.org/wiki/Windenergie)
+* [Gemiddelde globale temperatuur](http://assets.climatecentral.org/images/uploads/gallery/4_21_15_EarthDay_GlobalTempRecord.png)
+* [Energieconsumptie](https://fractionalflow.files.wordpress.com/2014/10/fig-1-world-total-energy-consumption-1800-to-2013.png)
+* [Uitstoot](https://ourworldindata.org/wp-content/uploads/2017/04/Global-CO2-emissions-by-region-since-1751.png)
 
 ## Licenties
 
