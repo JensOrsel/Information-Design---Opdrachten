@@ -43,7 +43,7 @@ Mijn voornaamste problemen zaten in het veranderen van de labels in de bar chart
 
 ### Link
 
-Opdracht B is [hier](https://marvelapp.com/56e790d/) te vinden.
+Opdracht B is [hier](https://marvelapp.com/56e790d/) te vinden. **Maak het prototype fullscreen met F11, of het Apple-equivalent**
 
 ### Het idee
 
