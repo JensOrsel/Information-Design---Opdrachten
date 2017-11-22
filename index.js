@@ -1,5 +1,5 @@
 var svg = d3.select("svg"),
-    margin = {top: 20, right: 80, bottom: 30, left: 50},
+    margin = {top: 0, right: 0, bottom: 30, left: 0},
     width = svg.attr("width") - margin.left - margin.right,
     height = svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
@@ -62,13 +62,123 @@ d3.csv("data.csv", type, function(error, data) {
       .style("stroke", function(d) { return z(d.id); });
 
   waarde.append("text")
-      .datum(function(d) { return {id: d.id, value: d.values[d.values.length - 1]}; })
-      .attr("transform", function(d) { return "translate(" + x(d.value.jaar) + "," + y(d.value.prijs) + ")"; })
-      .attr("x", 3)
-      .attr("dy", "-1em")
-      .attr("dx", "-6em")
-      .style("font", "10px sans-serif")
-      .text(function(d) { return d.id; });
+    .attr('x', width - 700)
+    .attr('y', function(d, i){ return (i *  30) + 165;})
+    .text(function(d){ return d.id; })
+    .attr("font-size", 10);
+
+  waarde.append("rect")
+    .attr('x', width - 730)
+    .attr('y', function(d, i){ return (i *  30) + 150;})
+    .attr('width', 20)
+    .attr('height', 20)
+    .style('fill', function(d) {
+      return z(d.id);
+    });
+
+// append a g for all the mouse over nonsense
+var mouseG = svg.append("g")
+  .attr("class", "mouse-over-effects");
+
+// this is the vertical line
+mouseG.append("path")
+  .attr("class", "mouse-line")
+  .style("stroke", "black")
+  .style("stroke-width", "1px")
+  .style("opacity", "0");
+
+// keep a reference to all our lines
+var lines = document.getElementsByClassName('line');
+
+// here's a g for each circle and text on the line
+var mousePerLine = mouseG.selectAll('.mouse-per-line')
+  .data(waarden)
+  .enter()
+  .append("g")
+  .attr("class", "mouse-per-line");
+
+// the circle
+mousePerLine.append("circle")
+  .attr("r", 7)
+  .style("stroke", function(d) {
+    return z(d.id);
+  })
+  .style("fill", "none")
+  .style("stroke-width", "1px")
+  .style("opacity", "0");
+
+// the text
+mousePerLine.append("text")
+  .attr("transform", "translate(10,3)");
+
+// rect to capture mouse movements
+mouseG.append('svg:rect')
+  .attr('width', width)
+  .attr('height', height)
+  .attr('fill', 'none')
+  .attr('pointer-events', 'all')
+  .on('mouseout', function() { // on mouse out hide line, circles and text
+    d3.select(".mouse-line")
+      .style("opacity", "0");
+    d3.selectAll(".mouse-per-line circle")
+      .style("opacity", "0");
+    d3.selectAll(".mouse-per-line text")
+      .style("opacity", "0");
+  })
+  .on('mouseover', function() { // on mouse in show line, circles and text
+    d3.select(".mouse-line")
+      .style("opacity", "1");
+    d3.selectAll(".mouse-per-line circle")
+      .style("opacity", "1");
+    d3.selectAll(".mouse-per-line text")
+      .style("opacity", "1");
+  })
+  .on('mousemove', function() { // mouse moving over canvas
+    var mouse = d3.mouse(this);
+
+    // move the vertical line
+    d3.select(".mouse-line")
+      .attr("d", function() {
+        var d = "M" + mouse[0] + "," + height;
+        d += " " + mouse[0] + "," + 0;
+        return d;
+      });
+
+    // position the circle and text
+    d3.selectAll(".mouse-per-line")
+      .attr("transform", function(d, i) {
+        console.log(width/mouse[0])
+        var xDate = x.invert(mouse[0]),
+            bisect = d3.bisector(function(d) { return d.date; }).right;
+            idx = bisect(d.values, xDate);
+
+        // since we are use curve fitting we can't relay on finding the points like I had done in my last answer
+        // this conducts a search using some SVG path functions
+        // to find the correct position on the line
+        // from http://bl.ocks.org/duopixel/3824661
+        var beginning = 0,
+            end = lines[i].getTotalLength(),
+            target = null;
+
+        while (true){
+          target = Math.floor((beginning + end) / 2);
+          pos = lines[i].getPointAtLength(target);
+          if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+              break;
+          }
+          if (pos.x > mouse[0])      end = target;
+          else if (pos.x < mouse[0]) beginning = target;
+          else break; //position found
+        }
+
+        // update the text with y value
+        d3.select(this).select('text')
+          .text(y.invert(pos.y).toFixed(2));
+
+        // return position
+        return "translate(" + mouse[0] + "," + pos.y +")";
+      });
+  });
 
 });
 
@@ -156,6 +266,113 @@ d3.csv("data3.csv", function(d, i, columns) {
       .text(function(d) { return d; });
 
 });
+
+d3.text('data2.csv').mimeType('text/plain;charset=iso88591').get(onload);
+
+/*The .csv file is cleaned by getting rid of the header, the semicolons are replaced with commas.
+The words 'number' and the actual numbers (e.g. 1.4) are effectively removed by replacing them with nothing*/
+
+function onload(err, doc) {
+  if (err) throw err;
+     var header = doc.indexOf('TJ')
+    var end = doc.indexOf('\n', header)
+    doc = doc.slice(end).trim()
+    doc = doc.replace(/number/g, '')
+    doc = doc.replace(/;/g, ',')
+    doc = doc.replace(/\d\.\d /g, '') /*Thanks @wooorm*/
+
+/*I'm storing the cleaned data in var cleanedData, each column from the dataset gets its own key.*/
+
+    var cleanedData = d3.csvParseRows(doc, map)
+    function map(d) {
+    return {
+      source: d[0],
+      year: Number(d[2]),
+      amount: Number(d[3])
+    }
+  }
+
+/*The footer is taken out of cleanedData, preventing an empty object from being returned.*/
+
+    var cyaFooter = cleanedData.indexOf('� Statistics Netherlands, Den Haag/Heerlen 11-10-2017');
+    var remove = cleanedData.splice(cyaFooter); /*Thanks @DesleyAalderink*/
+
+    console.log(cleanedData)
+
+var svgCountry = d3.select(".country"),
+margin3 = {top: 50, right: 20, bottom: 0, left: 40},
+width3 = +svgCountry.attr("width") - margin3.left - margin3.right,
+height3 = +svgCountry.attr("height") - margin3.bottom - margin3.top,
+radius = Math.min(width3, height3) / 2,
+g3 = svgCountry.append("g").attr("transform", "translate(" + width3 / 2 + "," + height3 / 2 + ")");
+
+var color = d3.scaleOrdinal(["#98abc5", "#8a89a6", "#7b6888"]);
+
+var pie = d3.pie()
+    .sort(null)
+    .value(function(d) { return d.amount; });
+
+var path = d3.arc()
+    .outerRadius(radius - 10)
+    .innerRadius(0);
+
+var label = d3.arc()
+    .outerRadius(radius + 10)
+    .innerRadius(radius + 10);
+
+/*1997 is the default option (upon landing) so I'm filtering the cleaned data to all entries belonging to 1997.*/
+
+var cleanedDatatime = cleanedData.filter(function(d) { return d.year == "2010" })
+
+/*This is where the pie and its labels are made.*/
+
+var arc = g3.selectAll(".arc")
+    .data(pie(cleanedDatatime))
+    .enter().append("g")
+      .attr("class", "arc");
+
+  arc.append("path")
+      .attr("d", path)
+      .attr("fill", function(d) { return color(d.data.amount); });
+
+  arc.append("text")
+      .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+      .attr("dy", "0.35em")
+      .text(function(d) { return d.data.source.concat(": ", d.data.amount, " terajoule"); });
+
+/*Now we listen to the second dropdown, the one for the pie chart, and run onchangeTime when anything is changed.*/
+
+d3.select('.selectyear').on('change', onchangeTime);
+
+function onchangeTime(){
+            field2 = this.value;
+
+            /*I'm filtering the cleaned data to the entries with the year that's selected in the dropdown. I'm also making sure that
+            entries with no local flights are filtered out, to prevent 'empty slices' from being created.*/
+
+            var cleanedDatatime2 = cleanedData.filter(function(d) { return d.year == field2 && Number(d.amount) != 0 })
+
+            /*The currently existing pie slices are removed, new ones are created with the newly filtered data.*/
+
+            g3.selectAll(".arc").remove()
+
+
+            var arc2 = g3.selectAll(".arc")
+            .data(pie(cleanedDatatime2))
+            .enter().append("g")
+            .attr("class", "arc")
+
+            arc2.append("path")
+            .attr("d", path)
+            .attr("fill", function(d) { return color(d.data.amount); });
+
+            arc2.append("text")
+            .attr("transform", function(d) { return "translate(" + label.centroid(d) + ")"; })
+            .attr("dy", "0.35em")
+            .text(function(d) { return d.data.source.concat(": ", d.data.amount, " terajoule"); });
+    }
+
+};
 
 function type(d, _, columns) {
   d.jaar = parseTime(d.jaar);
